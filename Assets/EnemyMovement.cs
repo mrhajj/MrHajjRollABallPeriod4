@@ -20,4 +20,12 @@ public class EnemyMovement : MonoBehaviour
             navMeshAgent.SetDestination(player.position);
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("TPCUBE")){
+            other.gameObject.SetActive(false);
+            this.gameObject.transform.position = new Vector3(0.0f, this.transform.position.y, 0.0f);
+        }
+    }
 }
